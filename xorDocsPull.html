@@ -1,144 +1,156 @@
-<h2>Chemp Physics Lua API Reference</h2>
+<div
+  style="
+    background:#111;
+    border-radius:16px;
+    padding:32px;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+  "
+>
 
-<p>Documentation for the XORWIRE Lua modding API.</p>
+  <h2 style="margin-top:0">Chemp Physics Lua API Reference</h2>
 
-<h2>LuaAPI</h2>
+  <p>Documentation for the XORWIRE Lua modding API.</p>
 
-<h3>GetTransformByName</h3>
-<p>Returns a <code>TransformWrapper</code> for a GameObject by name. Returns <code>null</code> if not found.</p>
-<pre><code>local playerTransform = API:GetTransformByName("Player")</code></pre>
+  <h2 style="margin-top:40px">LuaAPI</h2>
 
-<h3>GetObject</h3>
-<p>Returns a <code>GameObjectWrapper</code> for a GameObject by name. Returns <code>null</code> if not found.</p>
-<pre><code>local enemy = API:GetObject("Enemy")</code></pre>
+  <h3>GetTransformByName</h3>
+  <p>Returns a <code>TransformWrapper</code> for a GameObject by name. Returns <code>null</code> if not found.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local playerTransform = API:GetTransformByName("Player")</code></pre>
 
-<h3>DebugLog</h3>
-<p>Logs a message to the Unity console.</p>
-<pre><code>API:DebugLog("Hello from Lua!")</code></pre>
+  <h3>GetObject</h3>
+  <p>Returns a <code>GameObjectWrapper</code> for a GameObject by name. Returns <code>null</code> if not found.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local enemy = API:GetObject("Enemy")</code></pre>
 
-<h3>ChempDebuggerLog</h3>
-<p>Logs a message to the ChempDebugger system.</p>
-<pre><code>API:ChempDebuggerLog("Debug info")</code></pre>
+  <h3>DebugLog</h3>
+  <p>Logs a message to the Unity console.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>API:DebugLog("Hello from Lua!")</code></pre>
 
-<h3>GetGripValue</h3>
-<p>Returns the grip input value (0–1) for the left or right hand.</p>
-<pre><code>local grip = API:GetGripValue(true) -- true = left hand</code></pre>
+  <h3>ChempDebuggerLog</h3>
+  <p>Logs a message to the ChempDebugger system.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>API:ChempDebuggerLog("Debug info")</code></pre>
 
-<h3>GetTriggerValue</h3>
-<p>Returns the trigger input value (0–1) for the left or right hand.</p>
-<pre><code>local trigger = API:GetTriggerValue(false) -- false = right hand</code></pre>
+  <h3>GetGripValue</h3>
+  <p>Returns the grip input value (0–1) for the left or right hand.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local grip = API:GetGripValue(true)</code></pre>
 
-<h3>GetPrimaryButton</h3>
-<p>Returns whether the primary button is pressed for left/right hand.</p>
-<pre><code>if API:GetPrimaryButton(true) then
+  <h3>GetTriggerValue</h3>
+  <p>Returns the trigger input value (0–1) for the left or right hand.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local trigger = API:GetTriggerValue(false)</code></pre>
+
+  <h3>GetPrimaryButton</h3>
+  <p>Returns whether the primary button is pressed for left/right hand.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>if API:GetPrimaryButton(true) then
     -- do something
 end</code></pre>
 
-<h3>GetSecondaryButton</h3>
-<p>Returns whether the secondary button is pressed for left/right hand.</p>
-<pre><code>if API:GetSecondaryButton(false) then
+  <h3>GetSecondaryButton</h3>
+  <p>Returns whether the secondary button is pressed for left/right hand.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>if API:GetSecondaryButton(false) then
     -- do something
 end</code></pre>
 
-<h3>SendHaptic</h3>
-<p>Sends haptic feedback to a controller.</p>
-<pre><code>API:SendHaptic(true, 0.2, 0.5)</code></pre>
+  <h3>SendHaptic</h3>
+  <p>Sends haptic feedback to a controller.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>API:SendHaptic(true, 0.2, 0.5)</code></pre>
 
-<h3>SetActive</h3>
-<p>Activates or deactivates a <code>GameObjectWrapper</code>.</p>
-<pre><code>local obj = API:GetObject("Platform")
+  <h3>SetActive</h3>
+  <p>Activates or deactivates a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local obj = API:GetObject("Platform")
 API:SetActive(true, obj)</code></pre>
 
-<h3>DestroyObject</h3>
-<p>Destroys a <code>GameObjectWrapper</code>.</p>
-<pre><code>local enemy = API:GetObject("Enemy")
+  <h3>DestroyObject</h3>
+  <p>Destroys a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local enemy = API:GetObject("Enemy")
 API:DestroyObject(enemy)</code></pre>
 
-<h3>SetTag</h3>
-<p>Sets the tag of a <code>GameObjectWrapper</code>.</p>
-<pre><code>API:SetTag("Interactable", obj)</code></pre>
+  <h3>SetTag</h3>
+  <p>Sets the tag of a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>API:SetTag("Interactable", obj)</code></pre>
 
-<h3>GetObjectByTag</h3>
-<p>Returns a list of <code>GameObjectWrapper</code> objects matching the tag.</p>
-<pre><code>local enemies = API:GetObjectByTag("Enemy")
+  <h3>GetObjectByTag</h3>
+  <p>Returns a list of <code>GameObjectWrapper</code> objects matching the tag.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local enemies = API:GetObjectByTag("Enemy")
 for i, enemy in ipairs(enemies) do
     enemy:GetTransform():SetPosition(0, 1, 0)
 end</code></pre>
 
-<h3>GetPhysRig</h3>
-<p>Returns the physics rig as a <code>GameObjectWrapper</code>.</p>
-<pre><code>local rig = API:GetPhysRig()</code></pre>
+  <h3>GetPhysRig</h3>
+  <p>Returns the physics rig as a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local rig = API:GetPhysRig()</code></pre>
 
-<h3>GetMainCamera</h3>
-<p>Returns the main camera as a <code>GameObjectWrapper</code>.</p>
-<pre><code>local cam = API:GetMainCamera()</code></pre>
+  <h3>GetMainCamera</h3>
+  <p>Returns the main camera as a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local cam = API:GetMainCamera()</code></pre>
 
-<h3>CreatePrimitiveObject</h3>
-<p>Creates a primitive GameObject and returns a <code>GameObjectWrapper</code>.</p>
-<pre><code>local cube = API:CreatePrimitiveObject("Cube")
+  <h3>CreatePrimitiveObject</h3>
+  <p>Creates a primitive GameObject and returns a <code>GameObjectWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local cube = API:CreatePrimitiveObject("Cube")
 cube:GetTransform():SetPosition(0, 2, 0)</code></pre>
 
-<h2>TransformWrapper</h2>
+  <h2 style="margin-top:40px">TransformWrapper</h2>
 
-<h3>GetPosX / GetPosY / GetPosZ</h3>
-<p>Returns the respective position axis.</p>
-<pre><code>local x = transform:GetPosX()</code></pre>
+  <h3>GetPosX / GetPosY / GetPosZ</h3>
+  <p>Returns the respective position axis.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local x = transform:GetPosX()</code></pre>
 
-<h3>GetRotX / GetRotY / GetRotZ</h3>
-<p>Returns the respective rotation axis (Euler angles).</p>
-<pre><code>local yRot = transform:GetRotY()</code></pre>
+  <h3>GetRotX / GetRotY / GetRotZ</h3>
+  <p>Returns the respective rotation axis (Euler angles).</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local yRot = transform:GetRotY()</code></pre>
 
-<h3>GetScaleX / GetScaleY / GetScaleZ</h3>
-<p>Returns the respective local scale axis.</p>
-<pre><code>local scaleZ = transform:GetScaleZ()</code></pre>
+  <h3>GetScaleX / GetScaleY / GetScaleZ</h3>
+  <p>Returns the respective local scale axis.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local scaleZ = transform:GetScaleZ()</code></pre>
 
-<h3>GetPos</h3>
-<p>Returns a <code>Vector3Wrapper</code> of the current position.</p>
-<pre><code>local pos = transform:GetPos()</code></pre>
+  <h3>GetPos</h3>
+  <p>Returns a <code>Vector3Wrapper</code> of the current position.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local pos = transform:GetPos()</code></pre>
 
-<h3>SetPosition</h3>
-<p>Sets the Transform position.</p>
-<pre><code>transform:SetPosition(0, 1, 0)</code></pre>
+  <h3>SetPosition</h3>
+  <p>Sets the Transform position.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>transform:SetPosition(0, 1, 0)</code></pre>
 
-<h3>SetRotation</h3>
-<p>Sets the Transform rotation in Euler angles.</p>
-<pre><code>transform:SetRotation(0, 90, 0)</code></pre>
+  <h3>SetRotation</h3>
+  <p>Sets the Transform rotation in Euler angles.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>transform:SetRotation(0, 90, 0)</code></pre>
 
-<h3>SetScale</h3>
-<p>Sets the Transform local scale.</p>
-<pre><code>transform:SetScale(1, 2, 1)</code></pre>
+  <h3>SetScale</h3>
+  <p>Sets the Transform local scale.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>transform:SetScale(1, 2, 1)</code></pre>
 
-<h3>LookAt</h3>
-<p>Rotates the Transform to look at another <code>TransformWrapper</code>.</p>
-<pre><code>local target = API:GetTransformByName("Enemy")
+  <h3>LookAt</h3>
+  <p>Rotates the Transform to look at another <code>TransformWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local target = API:GetTransformByName("Enemy")
 transform:LookAt(target)</code></pre>
 
-<h2>GameObjectWrapper</h2>
+  <h2 style="margin-top:40px">GameObjectWrapper</h2>
 
-<h3>GetTransform</h3>
-<p>Returns the wrapped <code>TransformWrapper</code>.</p>
-<pre><code>local t = obj:GetTransform()</code></pre>
+  <h3>GetTransform</h3>
+  <p>Returns the wrapped <code>TransformWrapper</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local t = obj:GetTransform()</code></pre>
 
-<h3>GetName / SetName</h3>
-<p>Gets or sets the GameObject name.</p>
-<pre><code>local name = obj:GetName()
+  <h3>GetName / SetName</h3>
+  <p>Gets or sets the GameObject name.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local name = obj:GetName()
 obj:SetName("NewName")</code></pre>
 
-<h2>Vector3Wrapper</h2>
+  <h2 style="margin-top:40px">Vector3Wrapper</h2>
 
-<h3>GetX / GetY / GetZ</h3>
-<p>Returns the respective component.</p>
-<pre><code>local x = vec:GetX()</code></pre>
+  <h3>GetX / GetY / GetZ</h3>
+  <p>Returns the respective component.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local x = vec:GetX()</code></pre>
 
-<h3>SetX / SetY / SetZ</h3>
-<p>Sets the respective component.</p>
-<pre><code>vec:SetY(5)</code></pre>
+  <h3>SetX / SetY / SetZ</h3>
+  <p>Sets the respective component.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>vec:SetY(5)</code></pre>
 
-<h3>ToVector3</h3>
-<p>Converts the wrapper to a Unity <code>Vector3</code>.</p>
-<pre><code>local v3 = vec:ToVector3()</code></pre>
+  <h3>ToVector3</h3>
+  <p>Converts the wrapper to a Unity <code>Vector3</code>.</p>
+  <pre style="background:#0f0f0f;padding:16px;border-radius:12px"><code>local v3 = vec:ToVector3()</code></pre>
 
-<p>
-That’s all!  
-Visit <a href="https://discord.gg/xorwire/">https://discord.gg/xorwire/</a> to suggest new API features.
-</p>
+  <p style="margin-top:32px">
+    That’s all!<br>
+    Visit <a href="https://discord.gg/xorwire/" style="color:#4da6ff">https://discord.gg/xorwire/</a>
+    to suggest new API features.
+  </p>
+
+</div>
